@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{!--Set titles, icons and stylesheet --}}
+    <title>Weather</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+
+
+</head>
+
+
+<body>
+    <div class="main-content">
+
+        {{!--hbs directive to load partial with name header  --}}
+        {{>header}}
+        <p>Use this site to get your weather</p>
+
+
+        {{!--Create input form  --}}
+        <form>
+            <input placeholder="Location">
+            <button>
+                Search
+            </button>
+        </form>
+
+        {{!--Setup paragraphs w/ unique IDs to be written to with status messages when form is run  --}}
+        <p id="message-1">
+
+        </p>
+
+        <p id="message-2">
+
+        </p>
+
+    </div>
+    {{!--hbs directive to load partial with name footer  --}}
+    {{>footer}}
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
