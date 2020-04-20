@@ -43,7 +43,7 @@ weatherForm.addEventListener('submit', (e) => {
     //Use weather-app HTTP JSON endpoint to search by location string and return forecast string
     // query address=string
     //return JSON{location string, forecast string}
-    fetch('http://localhost:3000/weather?address='+location).then((response) => {
+    fetch('/weather?address='+location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 //Write error content if endpoint returns with an error and return from function

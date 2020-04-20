@@ -14,6 +14,7 @@ const geocode = require('./utils/geocode')
 
 //Initialise express as app variable
 const app = express()
+const port = process.env.PORT || 3000
 
 //Define absolute directory paths for webserver public directory and handlebars views directory
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -184,7 +185,7 @@ app.get('*', (req, res) => {
 
 
 //First arg is port to use, second (optional) is a callback to run once server starts
-app.listen(3000, () => {
-    console.log("Server is up on port 3000")
+app.listen(port, () => {
+    console.log("Server is up on port "+port)
 })
 
