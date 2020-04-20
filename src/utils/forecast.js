@@ -1,5 +1,8 @@
 const request = require('request')
 
+
+//Include additional data for forecast string
+
 const forecast = (latitude, longitude, callback) => {
     const url = 'http://api.weatherstack.com/current?access_key=552ace18e6f5409eebcb07933016190f&query=' + latitude + ',' + longitude + '& units=m'
     debugger
@@ -13,12 +16,14 @@ const forecast = (latitude, longitude, callback) => {
         }
 
         else {
-            const temperature = body.current.temperature
-            const description = body.current.weather_descriptions[0]
-            const feelslike = body.current.feelslike
-            const forecastString = 'It is ' + description + ' and ' + temperature +' degrees out' + ' but it feels like ' + feelslike +' degrees'
+            const { temperature, weather_descriptions, feelslike, wind_speed, wind_dir } = body.current
+            //const temperature = body.current.temperature
+            //const description = body.current.weather_descriptions[0]
+            //const feelslike = body.current.feelslike
 
-            callback(undefined, forecastString)
+            const forecastString = 'It is ' + weather_descriptions[0] + ' and ' + temperature + ' degrees out' + ' but it feels like ' + feelslike + ' degrees. '
+            const wind_forecastString = 'Wind is ' + wind_speed + 'Km/h in ' + wind_dir + ' direction.'
+            callback(undefined, forecastString + wind_forecastString)
 
         }
 
