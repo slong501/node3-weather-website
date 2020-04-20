@@ -69,7 +69,4 @@ const forecast = (latitude, longitude, callback) => {
 
 
 //forecast(-75.7088, 44.1545, (error, data) => {
-
-
-
 module.exports = forecast
